@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.steven.hotel.mapper.HotelMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.steven.hotel.entity.Hotel">
+        <id column="hotel_id" property="hotelId" />
+        <result column="hotel_name" property="hotelName" />
+        <result column="hotel_formerly_name" property="hotelFormerlyName" />
+        <result column="hotel_translated_name"  property="hotelTranslatedName"></result>
+        <result column="addressline" property="addressline" />
+        <result column="zipcode" property="zipcode"/>
+        <result column="state" property="state"/>
+        <result column="countryisocode" property="countryisocode"/>
+        <result column="star_rating" property="starRating"/>
+        <result column="longitude" property="longitude"/>
+        <result column="latitude" property="latitude"/>
+        <result column="longitude" property="longitude"/>
+        <result column="url" property="url"/>
+        <result column="checkin" property="checkin"/>
+        <result column="checkout" property="checkout"/>
+        <result column="numberrooms" property="numberrooms"/>
+        <result column="numberfloors" property="numberfloors"/>
+        <result column="yearopened" property="yearopened"/>
+        <result column="yearrenovated" property="yearrenovated"/>
+        <result column="photo1" property="photo1"/>
+        <result column="photo2" property="photo2"/>
+        <result column="photo3" property="photo3"/>
+        <result column="photo4" property="photo4"/>
+        <result column="photo5" property="photo5"/>
+        <result column="overview" property="overview"/>
+        <result column="rates_from" property="ratesFrom"/>
+        <result column="continent_id" property="continentId"/>
+        <result column="continent_name" property="continentName"/>
+        <result column="city_id" property="cityId"/>
+        <result column="country_id" property="countryId"/>
+        <result column="number_of_reviews" property="numberOfReviews"/>
+        <result column="rating_average" property="ratingAverage"/>
+        <result column="rates_currency" property="ratesCurrency"/>
+    </resultMap>
+
+
+
+
+    <select id="hotelPage" resultMap="BaseResultMap">
+        SELECT * FROM hotel_info where `hotel_translated_name` like '%${hotel.hotelTranslatedName}%'
+    </select>
+</mapper>
